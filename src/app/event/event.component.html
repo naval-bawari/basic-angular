@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="main-container">
+<p>event works!</p>
+
+<div *ngFor="let post of postData">
+    <app-child [postData]= "post"></app-child>
+</div>
+</div>

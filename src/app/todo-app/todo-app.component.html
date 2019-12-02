@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="main-container">
+<div id="myDIV" class="header">
+    <h2 style="margin:5px;color:#FFF;">My To Do List</h2>
+    <input type="text" [(ngModel)]="item" id="myInput" placeholder="Title..."/>
+    <button mat-raised-button color="primary" *ngIf="!isShow" (click)="addTodo()" >
+        Add
+    </button>    
+    <button mat-raised-button color="primary" *ngIf="isShow" (click)="updateTodo()" >
+        Update
+    </button>    
+    <button mat-raised-button color="accent" *ngIf="isShow" (click)="cancel()" >
+        Cancel
+    </button>    
+</div>
+      
+<ul id="myUL">
+    <li  *ngFor="let item of todoList  let i = index" > {{item.name}} <span class="pull-right"  (click)=editTodo(i)>Edit</span><span class="pull-right" (click)=deleteTodo(i)>Delete</span></li>
+</ul>
+</div>

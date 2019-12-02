@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" [routerLinkActive]="['active']" >
+                <a  class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Dashboard</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/todo']" routerLinkActive="router-link-active" >Todo</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/event']" routerLinkActive="router-link-active" >Event</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/service']" routerLinkActive="router-link-active" >Service</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/user']" routerLinkActive="router-link-active" >List User</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/eventemit']" routerLinkActive="router-link-active" >Event Emit</a>
+          </li>
+        </ul>
+         <span (click)="logout()" class="btn btn-primary">Logout</span>
+    </div>
+</nav>

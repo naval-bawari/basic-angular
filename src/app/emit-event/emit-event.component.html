@@ -1,0 +1,13 @@
+
+<app-header></app-header>
+<div class="main-container">
+<h2>Should mankind colonize the Universe?</h2>
+<h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+<button mat-raised-button color="primary" (click)="reset()">
+    Clear
+</button> 
+<app-child-event *ngFor="let voter of voters"
+    [name]="voter"
+    (voted)="onVoted($event)">
+</app-child-event>
+</div>
