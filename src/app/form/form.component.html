@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div class="main-container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    
+        <label class="mr-3">
+            First Name:
+            <input type="text" formControlName="firstName" class="form-control " (focusout)="getUserData()">
+            
+            <span *ngIf="submitted && f.firstName.errors" class="text-danger">
+                Frist name is required
+            </span>     
+        </label>       
+    
+        <label class="mr-3">
+            Last Name:
+            <input type="text" formControlName="lastName" class="form-control">
+            <span *ngIf="submitted && f.lastName.errors" class="text-danger">
+                Last name is required
+            </span>         
+        </label>
+
+        <label class="mr-3">
+            Email:
+            <input type="text" formControlName="email" class="form-control">
+            <span *ngIf="submitted && f.email.errors" class="text-danger">
+                Email is required
+            </span>         
+        </label>        
+
+        <div formArrayName="address">
+            <h3>Address</h3>
+            <div *ngFor="let itemrow of profileForm.controls.address.controls; let i=index"  [formGroupName]="i">            
+            <label class="mr-3">
+                    Street:
+                    <input type="text" formControlName="street" class="form-control"> 
+                </label>
+                
+            <label class="mr-3">
+                    City:
+                    <input type="text" formControlName="city" class="form-control">
+                </label>
+                
+            <label class="mr-3">
+                    State:
+                    <input type="text" formControlName="state" class="form-control">
+                </label>
+                
+            <label class="mr-3">
+                    Zip Code:
+                    <input type="text" formControlName="zip" class="form-control">
+                </label>
+                
+                <button type="button" class="btn btn-danger mr-1" *ngIf="profileForm.controls.address.length>2" (click)="deleteAddress(i)"> Delete</button>                
+
+                </div>
+        </div>
+        <button type="button" class="btn btn-primary mr-1" (click)="addMoreAddress()">+ Add More</button>  
+        <button type="button" class="btn btn-warning mr-1" (click)="getUserData()">Set Value</button>  
+        <button type="submit" class="btn btn-info mr-1">Submit</button>   
+        <button type="reset" class="btn btn-secondary" (click)="onReset()">Cancel</button>   
+    </form>
+</div>

@@ -25,6 +25,8 @@ import { ChildEventComponent } from './child-event/child-event.component';
 import { StringPipePipe } from './string-pipe.pipe';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { AgmCoreModule } from '@agm/core';
+import { FormComponent } from './form/form.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { AgmCoreModule } from '@agm/core';
     UserComponent,
     EmitEventComponent,
     ChildEventComponent,
-    StringPipePipe
+    StringPipePipe,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { AgmCoreModule } from '@agm/core';
   ],
   providers: [
     // no need to place any providers due to the `providedIn` flag...
-    {provide: HTTP_INTERCEPTORS, useClass: ApiService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ApiService, multi: true},
+    {provide: 'API_URL', useValue: environment.apiUrl}
   ],
   bootstrap: [ AppComponent ]
 })

@@ -6,6 +6,7 @@ import { EventComponent } from './event/event.component';
 import { ApiComponent } from './api/api.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
+import { FormComponent } from './form/form.component';
 import { EmitEventComponent } from './emit-event/emit-event.component';
 import { 
   AuthGuardService as AuthGuard 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'service', component: ApiComponent , canActivate: [AuthGuard] }, 
   { path: 'user', component: UserComponent, canActivate: [AuthGuard]  },
   { path: 'eventemit', component: EmitEventComponent, canActivate: [AuthGuard]  },
+  { path: 'form', component: FormComponent, canActivate: [AuthGuard]  },
   {path: '**', redirectTo: ''} 
 
 ];
